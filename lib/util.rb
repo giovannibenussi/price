@@ -20,3 +20,10 @@ end
 def get_numbers(string)
     string.delete("^0-9")
 end
+
+def get_host_from_url(url)
+  url = "http://#{url}" if URI.parse(url).scheme.nil?
+  host = URI.parse(url).host.downcase
+  host = host.start_with?('www.') ? host[4..-1] : host
+  host.split('.')[0]
+end
