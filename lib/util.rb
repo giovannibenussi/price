@@ -4,6 +4,7 @@ module Util
         string
     end
 end
+
 class File
     def self.ruby_files_in_dir(dir, extension = '*')
         files = []
@@ -14,4 +15,8 @@ class File
         files
     end
 
+end
+
+def get_numbers(string)
+    string.delete("^0-9")
 end
