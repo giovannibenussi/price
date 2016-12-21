@@ -5,10 +5,10 @@ module Util
     end
 end
 class File
-    def self.ruby_files_in_dir(dir)
+    def self.ruby_files_in_dir(dir, extension = '*')
         files = []
         dir = Util.remove_last_slash(dir)
-        Dir[File.join("#{dir}/**/*.rb")].each do |f|
+        Dir[File.join("#{dir}/**/*.#{extension}")].each do |f|
          files.push(f)
         end
         files
