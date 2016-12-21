@@ -5,6 +5,13 @@ require 'open-uri'
 class Processor
     def initialize(url)
         @url = url
-        @doc = Nokogiri::HTML(open(@url))
+    end
+
+    def doc
+        @doc ||= Nokogiri::HTML(open(@url))
+    end
+
+    class << self
+        attr_reader :name
     end
 end
