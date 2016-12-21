@@ -10,5 +10,9 @@ module PriceProcessors
         def name
             doc.css('#productDecription')[0].text
         end
+
+        def brand
+            doc.css('#productBrand')[0].text
+        end
     end
 end

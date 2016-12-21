@@ -15,6 +15,10 @@ module Price
     def self.from_url(url)
         host = get_host_from_url(url)
         processor = PriceProcessors.constants.find { | e | host == PriceProcessors.const_get(e).host }
+        if processor.nil?
+            puts "Processor not defined for the url #{url}"
+            return nil
+        end
         PriceProcessors.const_get(processor).new(url)
     end
 end
