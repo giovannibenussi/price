@@ -12,6 +12,6 @@ class Processor
     end
 
     class << self
-        attr_reader :name
+        attr_reader :name, :host
     end
 end

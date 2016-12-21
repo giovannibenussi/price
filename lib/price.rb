@@ -14,10 +14,7 @@ module Price
 
     def self.from_url(url)
         host = get_host_from_url(url)
-    end
-
-    def self.const_missing(name)
-        processor = PriceProcessors.constants.find { | e | not e.nil? }
-        PriceProcessors.const_get(processor)
+        processor = PriceProcessors.constants.find { | e | host == PriceProcessors.const_get(e).host }
+        PriceProcessors.const_get(processor).new(url)
     end
 end
