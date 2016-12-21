@@ -13,6 +13,8 @@ urls = [
 urls.each do | url |
     product = Price.from_url(url)
     unless product.nil?
+        puts product.price
         puts product.name
+        puts
     end
 end
