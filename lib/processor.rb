@@ -1,6 +1,5 @@
 require 'nokogiri'
-require 'open-uri'
-
+require 'net/http'
 
 class Processor
     def initialize(url)
@@ -8,7 +7,8 @@ class Processor
     end
 
     def doc
-        @doc ||= Nokogiri::HTML(open(@url))
+        response = Net::HTTP.get_response(URI.parse(@url))
+        @doc ||= Nokogiri::HTML(response.body)
     end
 
     class << self

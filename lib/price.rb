@@ -6,6 +6,7 @@ module Price
         files_in_dir = File.ruby_files_in_dir(path, extension)
         # processors = files_in_dir.map { |e| e.split('/')[-1] }.to_s
         files_in_dir.each do | file |
+            puts "Loading #{file}"
             require_relative "../#{file}"
         end
     end
